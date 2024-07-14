@@ -101,6 +101,14 @@ watch(
   }
 );
 
+watch(
+  () => router.currentRoute.value,
+  (nv) => {},
+  {
+    immediate: true,
+  }
+);
+
 onMounted(() => {
   getHospitalInfo();
   getHospitalLevelData();

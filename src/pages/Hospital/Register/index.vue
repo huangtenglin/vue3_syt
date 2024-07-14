@@ -105,10 +105,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useDetailStore } from '@/store/detail';
 import { useRouter, useRoute } from 'vue-router';
 const route = useRoute();
+const router = useRouter();
 const detailStore = useDetailStore();
 let currentIndex = ref(0);
 const changeIndex = (index: number) => {
@@ -126,7 +127,10 @@ const changeIndex = (index: number) => {
   });
 };
 const showLogin = (item: any) => {
-  console.log(item, 'item');
+  router.push({
+    path: '/hospital/register_step1',
+    query: { hoscode: route.query.hoscode, depcode: item.depcode },
+  });
 };
 </script>
 
@@ -232,6 +236,7 @@ const showLogin = (item: any) => {
             color: #7f7f7f;
             width: 33%;
             line-height: 30px;
+            cursor: pointer;
           }
         }
       }

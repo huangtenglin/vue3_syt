@@ -276,7 +276,6 @@ const getCode = async () => {
   // 通知pinia仓储存储验证码
   try {
     await userStore.getCode(loginParam.phone);
-    console.log(userStore.code);
     loginParam.code = userStore.code;
   } catch (error) {
     ElMessage({
@@ -292,7 +291,8 @@ const login = (formEl: FormInstance | undefined) => {
     if (valid) {
       try {
         //用户登录成功
-        await userStore.userLogin(loginParam);
+        let res = await userStore.userLogin(loginParam);
+        console.log(res, 'res');
         //关闭对话框
         userStore.loginDialog = false;
         //获取url的query参数

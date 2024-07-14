@@ -31,7 +31,6 @@ export const useDetailStore = defineStore('detail', {
     async getHopitalDeparment(hoscode: string) {
       let res: DeparmentResponseData = await reqHospitalDeparment(hoscode);
       if (res.code === 200) {
-        console.log(res, '医院部门数据返回');
         this.deparmentArr = res.data;
       }
     },

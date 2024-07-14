@@ -43,6 +43,8 @@ export const useUserStore = defineStore('user', {
       if (res.code === 200) {
         this.userInfo = res.data;
         SET_TOKEN(res.data);
+        console.log(res.data, '登录数据返回');
+        localStorage.setItem('token', res.data.token);
         return 'ok';
       } else {
         return Promise.reject(new Error(res.message));

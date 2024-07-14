@@ -62,6 +62,11 @@ const router = createRouter({
             title: '查询/取消',
           },
         },
+        {
+          path: 'register_step1',
+          component: () =>
+            import('@/pages/Hospital/Register/RegisterStep1/index.vue'),
+        },
       ],
     },
     {

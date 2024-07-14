@@ -19,7 +19,6 @@ const router = useRouter();
 import { reqHospitalInfo } from '@/api/home/index.ts';
 const handleSelect = (item: any) => {
   // 选择某一项触发
-  console.log(item, 'item');
   router.push({ path: '/hospital/register', query: item });
 };
 import { Search } from '@element-plus/icons-vue';
@@ -35,7 +34,6 @@ const querySearch = async (keyword: string, cb: Function) => {
         hoscode: item.hoscode, //存储医院的编码
       };
     }) || [];
-  console.log(result.data);
   //给组件提供展示的户数
   cb(showData);
 };
